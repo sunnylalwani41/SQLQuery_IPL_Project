@@ -2,6 +2,7 @@
 
 **Query**:
 ```bash
+
 select season, count(id) number_of_matches_per_year from matches group by season order by season asc;
 ```
 
