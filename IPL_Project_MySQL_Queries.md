@@ -50,11 +50,14 @@ select team, sum(c1) from (
 select batsman, count(if(batsman_runs=6, 1, NULL)) from deliveries d inner join matches m on d.match_id= m.id and m.season=2016 group by batsman;
 ```
 
-#### 7 Display the match analysis of the match id.
+#### 7 Display the match analysis of the match id 1.
 
 **Query**
 
 ```bash
+select batting_team, batsman, sum(batsman_runs) from deliveries where match_id=1 group by batting_team, batsman;
+
+select bowling_team, bowler, count(CASE WHEN dismissal_kind='' THEN NULL WHEN dismissal_kind='run out' THEN NULL ELSE 1 END) from deliveries where match_id=1 group by bowling_team, bowler;
 
 ```
 
