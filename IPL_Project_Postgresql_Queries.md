@@ -74,6 +74,6 @@ as m2 on m1.date=m2.date2 and m1.winner!='' group by m1.winner having count(m1.w
 #### 9 Compare the performance Between Sunriders Hyderabad vs Mumbai Indians.
 
 ```bash
-(select season, 'Sunrisers Hyderabad' Team_Name, count(CASE WHEN (team1= 'Sunrisers Hyderabad' OR team2= 'Sunrisers Hyderabad') AND winner='Sunrisers Hyderabad' THEN 1 ELSE NULL END) number_of_wins, count(if((team1= 'Sunrisers Hyderabad' OR team2= 'Sunrisers Hyderabad') AND winner<>'Sunrisers Hyderabad', 1, NULL)) number_of_loss from matches group by season order by season) UNION ALL
-(select season, 'Mumbai Indians' Team_Name, count(CASE WHEN (team1= 'Mumbai Indians' OR team2= 'Mumbai Indians') AND winner='Mumbai Indians' THEN 1 ELSE NULL END) number_of_wins, count(if((team1= 'Mumbai Indians' OR team2= 'Mumbai Indians') AND winner<>'Mumbai Indians', 1, NULL)) number_of_loss from matches group by season order by season);
+(select season, 'Sunrisers Hyderabad' Team_Name, count(CASE WHEN (team1= 'Sunrisers Hyderabad' OR team2= 'Sunrisers Hyderabad') AND winner='Sunrisers Hyderabad' THEN 1 ELSE NULL END) number_of_wins, count(CASE WHEN (team1= 'Sunrisers Hyderabad' OR team2= 'Sunrisers Hyderabad') AND winner<>'Sunrisers Hyderabad' THEN 1 ELSE NULL END) number_of_loss from matches group by season order by season) UNION ALL
+(select season, 'Mumbai Indians' Team_Name, count(CASE WHEN (team1= 'Mumbai Indians' OR team2= 'Mumbai Indians') AND winner='Mumbai Indians' THEN 1 ELSE NULL END) number_of_wins, count(CASE WHEN (team1= 'Mumbai Indians' OR team2= 'Mumbai Indians') AND winner<>'Mumbai Indians' THEN 1 ELSE NULL END) as number_of_loss from matches group by season order by season);
 ```
