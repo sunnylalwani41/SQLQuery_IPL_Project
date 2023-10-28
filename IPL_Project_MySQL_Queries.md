@@ -15,6 +15,13 @@ select winner, count(id) from matches where length(winner)!=0 group by winner or
 ```
 
 #### 3 For the year 2016 get the extra runs conceded per team.
+
+**Query**
+
+```bash
+
+```
+
 #### 4 For the year 2015 get the top economical bowlers.
 #### 5 Number of matches played by Team in particular year.
 #### 6 Hit Number of Sixer By Batsman In The particular Year.
