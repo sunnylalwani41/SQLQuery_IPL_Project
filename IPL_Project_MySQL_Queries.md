@@ -19,7 +19,7 @@ select winner, count(id) from matches where length(winner)!=0 group by winner or
 **Query**
 
 ```bash
-
+select d.bowling_team, sum(d.extra_runs) extra_runs_in_2016 from deliveries d inner join matches m on d.match_id = m.id and m.season=2016 group by d.bowling_team order by d.bowling_team;
 ```
 
 #### 4 For the year 2015 get the top economical bowlers.
