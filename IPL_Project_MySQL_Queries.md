@@ -66,7 +66,13 @@ select bowling_team, bowler, count(CASE WHEN dismissal_kind='' THEN NULL WHEN di
 **Query**
 
 ```bash
-
+select m1.winner, count(m1.winner) number_of_win from matches m1 inner join
+(select m.season, max(m.date) date2 from matches m group by m.season)
+as m2 on m1.date=m2.date2 and m1.winner!='' group by m1.winner having number_of_win>=3 order by number_of_win desc;
 ```
 
-#### 9 Compare the performace Between Sunriders Hydrabad vs Mumbai Indians.
+#### 9 Compare the performance Between Sunriders Hyderabad vs Mumbai Indians.
+
+```bash
+
+```
