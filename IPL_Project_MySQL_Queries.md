@@ -1,8 +1,9 @@
 #### 1 Number of matches played per year of all the years in IPL.
 
 **Query**:
-
-> select season, count(id) number_of_matches_per_year from matches group by season order by season asc;
+```bash
+select season, count(id) number_of_matches_per_year from matches group by season order by season asc;
+```
 
 #### 2 Number of matches won of all teams over all the years of IPL.
 #### 3 For the year 2016 get the extra runs conceded per team.
