@@ -7,6 +7,13 @@ select season, count(id) number_of_matches_per_year from matches group by season
 ```
 
 #### 2 Number of matches won of all teams over all the years of IPL.
+
+**Query**
+
+```bash
+select winner, count(id) from matches where length(winner)!=0 group by winner order by winner;
+```
+
 #### 3 For the year 2016 get the extra runs conceded per team.
 #### 4 For the year 2015 get the top economical bowlers.
 #### 5 Number of matches played by Team in particular year.
