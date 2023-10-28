@@ -42,7 +42,21 @@ select team, sum(c1) from (
 (select team2 team, count(team2) c1 from matches where season = 2016 group by team2)) abc group by team;
 ```
 
-#### 6 Hit Number of Sixer By Batsman In The particular Year.
+#### 6 Hit Number of Sixers By Batsman In The 2016 Year.
+
+**Query**
+
+```bash
+select batsman, count(if(batsman_runs=6, 1, NULL)) from deliveries d inner join matches m on d.match_id= m.id and m.season=2016 group by batsman;
+```
+
 #### 7 Display the match analysis of the match id.
+
+**Query**
+
+```bash
+
+```
+
 #### 8 Display the team name, who won at least 3 times.
 #### 9 Compare the performace Between Sunriders Hydrabad vs Mumbai Indians.
