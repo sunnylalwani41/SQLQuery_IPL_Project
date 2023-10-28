@@ -62,4 +62,11 @@ select bowling_team, bowler, count(CASE WHEN dismissal_kind='' THEN NULL WHEN di
 ```
 
 #### 8 Display the team name, who won at least 3 times.
+
+**Query**
+
+```bash
+
+```
+
 #### 9 Compare the performace Between Sunriders Hydrabad vs Mumbai Indians.
