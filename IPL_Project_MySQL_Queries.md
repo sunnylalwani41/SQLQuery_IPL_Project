@@ -23,7 +23,25 @@ select d.bowling_team, sum(d.extra_runs) extra_runs_in_2016 from deliveries d in
 ```
 
 #### 4 For the year 2015 get the top economical bowlers.
-#### 5 Number of matches played by Team in particular year.
+
+**Query**
+
+```bash
+select d.bowler, sum(((total_runs-(legbye_runs+bye_runs+penalty_runs))*6))/sum(CASE WHEN wide_runs!=0 THEN 0 WHEN noball_runs!=0 THEN 0 ELSE 1 END) economy_of_bowler
+from deliveries d inner join matches m
+on d.match_id= m.id and m.season=2015 group by bowler order by economy_of_bowler;
+```
+
+#### 5 Number of matches played by a Team in a 2016 year.
+
+**Query**
+
+```bash
+select team, sum(c1) from (
+(select team1 team, count(team1) c1 from matches where season = 2016 group by team1) union all
+(select team2 team, count(team2) c1 from matches where season = 2016 group by team2)) abc group by team;
+```
+
 #### 6 Hit Number of Sixer By Batsman In The particular Year.
 #### 7 Display the match analysis of the match id.
 #### 8 Display the team name, who won at least 3 times.
